@@ -1,5 +1,7 @@
 import './style.css';
 
+// My portfolio
+
 document.getElementById('app').innerHTML = `
   <!-- Navbar -->
   <nav class="bg-white shadow-md fixed w-full top-0 z-10">
