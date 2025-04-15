@@ -58,19 +58,43 @@ document.getElementById('app').innerHTML = `
 `;
 
 const projects = [
-  { title: "Portfolio Website", description: "Built with Vite, Tailwind CSS, and vanilla JS." },
-  { title: "Weather App", description: "Simple weather app using OpenWeatherMap API." },
-  { title: "Weather App", description: "Simple weather app using OpenWeatherMap API." },
-  { title: "Weather App", description: "Simple weather app using OpenWeatherMap API." },
+  {
+    title: "Portfolio Website",
+    description: "Built with Vite, Tailwind CSS, and vanilla JS.",
+    image: "/images/portfolio.png", // Place this image in public/images/
+    liveLink: "https://your-portfolio-link.com",
+    githubLink: "https://github.com/your-username/portfolio"
+  },
+  {
+    title: "Weather App",
+    description: "Simple weather app using OpenWeatherMap API.",
+    image: "/images/weather-app-v2.png",
+    liveLink: "https://gentle-belekoy-a2742f.netlify.app/",
+    githubLink: "https://github.com/asosa223/Weather-App-V2#"
+  }
 ];
 
 const projectsList = document.getElementById('projects-list');
 projects.forEach(project => {
   const card = document.createElement('div');
-  card.className = "bg-white p-6 rounded-lg shadow";
+  card.className = "bg-white rounded-lg shadow overflow-hidden flex flex-col";
   card.innerHTML = `
-    <h3 class="text-xl font-bold mb-2">${project.title}</h3>
-    <p>${project.description}</p>
+    <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
+    <div class="p-4 flex flex-col flex-grow">
+      <h3 class="text-xl font-bold mb-2">${project.title}</h3>
+      <p class="mb-4 flex-grow">${project.description}</p>
+      <div class="flex space-x-4 mt-auto">
+        <a href="${project.liveLink}" target="_blank"
+           class="w-10 h-10 flex items-center justify-center bg-blue-600 text-white rounded-full hover:bg-blue-700 transition" 
+           title="View Live">
+          🔗
+        </a>
+        <a href="${project.githubLink}" target="_blank"
+           class="w-10 h-10 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-gray-900 transition" 
+           title="View GitHub">
+          🐙
+        </a>
+    </div>
   `;
   projectsList.appendChild(card);
 });
