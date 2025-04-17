@@ -7,7 +7,7 @@ document.getElementById('app').innerHTML = `
   <nav class="bg-white shadow-md fixed w-full top-0 z-10">
     <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
       <div class="text-2xl font-bold text-blue-600">My Portfolio</div>
-      
+
       <!-- Desktop Menu -->
       <div class="hidden md:flex space-x-6 text-gray-700 font-medium">
         <a href="#home" class="hover:text-blue-600">Home</a>
@@ -37,10 +37,19 @@ document.getElementById('app').innerHTML = `
 
   <!-- Page Content -->
   <main class="pt-16">
+
     <!-- Home Section -->
     <section id="home" class="text-center py-20 bg-blue-100">
       <h1 class="text-4xl font-bold mb-4">Hi, I'm Alec Sosa</h1>
       <p class="text-lg">A web developer passionate about clean design and simple code.</p>
+    </section>
+
+    <!-- Tech Used Section -->
+    <section id="tech" class="max-w-6xl mx-auto px-4 py-12">
+      <h2 class="text-2xl font-bold mb-4 text-center">Tech Stack</h2>
+      <div id="tech-icons" class="flex flex-wrap justify-center gap-6 text-4xl">
+        <!-- JS will inject tech icons here -->
+      </div>
     </section>
 
     <!-- Projects Section -->
@@ -59,11 +68,11 @@ document.getElementById('app').innerHTML = `
 
 const projects = [
   {
-    title: "Portfolio Website",
-    description: "Built with Vite, Tailwind CSS, and vanilla JS.",
-    image: "/images/portfolio.png", // Place this image in public/images/
-    liveLink: "https://your-portfolio-link.com",
-    githubLink: "https://github.com/your-username/portfolio"
+    title: "Match A Gif",
+    description: "Matching game built with HTML, CSS, and vanilla JS.",
+    image: "/images/Match-a-gif.png", 
+    liveLink: "https://match-a-gif.netlify.app/",
+    githubLink: "https://github.com/asosa223/match-a-gif"
   },
   {
     title: "Weather App",
@@ -77,25 +86,27 @@ const projects = [
 const projectsList = document.getElementById('projects-list');
 projects.forEach(project => {
   const card = document.createElement('div');
-  card.className = "bg-white rounded-lg shadow overflow-hidden flex flex-col";
+  card.className = "relative group rounded-lg overflow-hidden shadow-lg";
+
   card.innerHTML = `
-    <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
-    <div class="p-4 flex flex-col flex-grow">
+    <img src="${project.image}" alt="${project.title}" class="w-full h-68 object-cover" />
+
+    <div class="absolute inset-0 bg-black/70 text-white flex flex-col items-center justify-center text-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
       <h3 class="text-xl font-bold mb-2">${project.title}</h3>
-      <p class="mb-4 flex-grow">${project.description}</p>
-      <div class="flex space-x-4 mt-auto">
+      <p class="text-sm mb-4">${project.description}</p>
+      <div class="flex gap-4">
         <a href="${project.liveLink}" target="_blank"
-           class="w-10 h-10 flex items-center justify-center bg-blue-600 text-white rounded-full hover:bg-blue-700 transition" 
-           title="View Live">
+           class="w-10 h-10 bg-white/20 hover:bg-white/40 rounded-full flex items-center justify-center transition">
           🔗
         </a>
         <a href="${project.githubLink}" target="_blank"
-           class="w-10 h-10 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-gray-900 transition" 
-           title="View GitHub">
+           class="w-10 h-10 bg-white/20 hover:bg-white/40 rounded-full flex items-center justify-center transition">
           🐙
         </a>
+      </div>
     </div>
   `;
+
   projectsList.appendChild(card);
 });
 
@@ -106,3 +117,36 @@ const mobileMenu = document.getElementById('mobile-menu');
 menuToggle.addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden');
 });
+
+const techIcons = [
+  "devicon-javascript-plain",
+  "devicon-html5-plain",
+  "devicon-css3-plain",
+  "devicon-tailwindcss-plain",
+  "devicon-git-plain",
+  "devicon-github-original",
+  "devicon-linux-plain",
+];
+
+const techContainer = document.getElementById('tech-icons');
+
+techIcons.forEach(iconClass => {
+  const icon = document.createElement('i');
+  icon.className = `${iconClass} text-gray-700 hover:text-indigo-500 transition-colors duration-200 p-4`;
+  techContainer.appendChild(icon);
+});
+
+// // Dark mode logic
+// const toggleBtn = document.getElementById('theme-toggle');
+// const htmlEl = document.documentElement;
+
+// toggleBtn.addEventListener('click', () => {
+//   htmlEl.classList.toggle('dark');
+//   // Optionally: Save preference to localStorage
+//   localStorage.setItem('theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+// });
+
+// // Optional: Load saved preference on page load
+// if (localStorage.getItem('theme') === 'dark') {
+//   htmlEl.classList.add('dark');
+// }
