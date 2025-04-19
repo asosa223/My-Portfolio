@@ -4,14 +4,15 @@ import './style.css';
 
 document.getElementById('app').innerHTML = `
   <!-- Navbar -->
-  <nav class="bg-white shadow-md fixed w-full top-0 z-10">
+  <nav class="bg-white w-full top-0 z-50 sticky shadow-md">
     <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="text-2xl font-bold text-blue-600">My Portfolio</div>
+      <div class="text-lg font-bold">Alec Sosa</div>
 
       <!-- Desktop Menu -->
       <div class="hidden md:flex space-x-6 text-gray-700 font-medium">
         <a href="#home" class="hover:text-blue-600">Home</a>
         <a href="#projects" class="hover:text-blue-600">Projects</a>
+        <a href="#about" class="hover:text-blue-600">About</a>
         <a href="#contact" class="hover:text-blue-600">Contact</a>
       </div>
 
@@ -36,21 +37,16 @@ document.getElementById('app').innerHTML = `
   </nav>
 
   <!-- Page Content -->
-  <main class="pt-16">
-
+  <main class="">
     <!-- Home Section -->
-    <section id="home" class="text-center py-20 bg-blue-100">
-      <h1 class="text-4xl font-bold mb-4">Hi, I'm Alec Sosa</h1>
-      <p class="text-lg">A web developer passionate about clean design and simple code.</p>
-    </section>
-
-    <!-- Tech Used Section -->
-    <section id="tech" class="max-w-6xl mx-auto px-4 py-12">
-      <h2 class="text-2xl font-bold mb-4 text-center">Tech Stack</h2>
-      <div id="tech-icons" class="flex flex-wrap justify-center gap-6 text-4xl">
-        <!-- JS will inject tech icons here -->
+    <section id="home" class="bg-white relative w-full h-screen bg-[url('/images/circle-scatter-haikei.svg')] bg-no-repeat bg-bottom bg-cover">
+      <div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center gap-4">
+        <h1 class="text-5xl font-bold mb-4">Hey, I'm Alec</h1>
+        <p class="text-xl max-w-xl">I'm a web developer passionate about crafting clean, secure, and responsive experiences.</p>
+        <button class="bg-indigo-500 text-white font-bold p-4  rounded-full" type="">Connect With Me</button>
       </div>
     </section>
+
 
     <!-- Projects Section -->
     <section id="projects" class="max-w-6xl mx-auto px-4 py-12">
@@ -58,20 +54,44 @@ document.getElementById('app').innerHTML = `
       <div id="projects-list" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
     </section>
 
+    <!-- Tech Used Section -->
+    <section id="tech" class="bg-indigo-500 text-white px-4 py-12">
+      <h2 class="text-2xl font-bold mb-4 text-center">Tech Stack</h2>
+      <div id="tech-icons" class="flex flex-wrap justify-center gap-6 text-4xl">
+        <!-- JS will inject tech icons here -->
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="text-center px-4 py-12 bg-white">
+      <h1 class="text-4xl font-bold mb-8">About Me</h1>
+        <div id="about-container" class="flex flex-col sm:flex-row items-center justify-center gap-10 max-w-5xl mx-auto">
+          <p class="text-lg sm:w-1/2 text-left sm:text-left">Hi, I'm Alec Sosa — a web developer with a growing foundation in cybersecurity and 
+          a background in the banking industry. I enjoy creating clean, 
+          responsive websites and web apps that focus on user experience and functionality. 
+          I work with HTML, CSS, and JavaScript, and I'm always looking to sharpen my skills and explore new technologies. 
+          Currently finishing my Associate's in Cybersecurity, I bring a security-conscious mindset to every project. 
+          Bilingual in English and Spanish, 
+          I thrive on collaboration and building solutions that make a real impact.
+          </p>
+          <img class="rounded-full w-64 h-64 object-cover shadow-lg" src="/images/alec.jpeg">
+        </div>
+    </section>
+
     <!-- Contact Section -->
-    <section id="contact" class="bg-gray-100 py-12 px-4 text-center">
+    <section id="contact" class="bg-gray-200 py-12 px-4 text-center">
       <div  id="contact-container" class="sm:flex flex-row-reverse justify-between px-4 py-12 text-left">
         <div id="contact-info" class="p-4 w-full">
-          <h2 class="text-2xl font-semibold mb-4">Get in Touch</h2>
+          <h2 class="text-2xl font-semibold mb-4 uppercase">Get in Touch</h2>
           <p class="mb-4">Justo eget magna fermentum iaculis eu non diam phasellus vestibulum. Eu volutpat odio facilisis mauris sit amet massa. Sit amet est placerat in egestas</p>
-          <span class="text-2xl block mb-4"> Address </span>
+          <span class="text-2xl block mb-4 uppercase"> Address </span>
           <a href class="block mb-4">228 NW 25th ST <br> Oklahoma City, OK 73103</a>
-          <span class="text-2xl block mb-4"> Email </span>
-          <a href="mailto:you@example.com" class="text-blue-600 block mb-4">you@example.com</a>
-          <span class="text-2xl block mb-4"> Phone </span>
+          <span class="text-2xl block mb-4 uppercase"> Email </span>
+          <a href="mailto:sosadev223@gmail.com" class="text-blue-600 block mb-4">sosadev223@gmail.com</a>
+          <span class="text-2xl block mb-4 uppercase"> Phone </span>
           <a href class="block mb-4">(405)431-9398</a>
         </div>
-        <form id="contact-form" class=" w-full p-4 rounded-md border-gray-300 border-1">
+        <form id="contact-form" class=" w-full p-4 rounded-md border-gray-300 border-1 bg-gray-100 shadow-lg">
           <label id="cs-label" class="flex flex-col mb-4">
               Name
               <input id="cs-input" class="p-4" required type="text" name="name" placeholder="John/Jane Doe">
@@ -88,7 +108,7 @@ document.getElementById('app').innerHTML = `
                 Message
                 <textarea id="cs-input" class="p-4" required name="Message" placeholder="Hello, I'm interested in..."></textarea>
           </label>
-          <button id="cs-button" class="bg-gray-300 p-4 w-full rounded-sm" type="submit">Submit Message Now</button>
+          <button id="cs-button" class="bg-indigo-500 text-white font-bold p-4 w-full rounded-sm" type="submit">Submit Message Now</button>
         </form>
       </div>
     </section>
@@ -134,7 +154,7 @@ const techContainer = document.getElementById('tech-icons');
 
 techIcons.forEach(iconClass => {
   const icon = document.createElement('i');
-  icon.className = `${iconClass} text-gray-700 hover:text-indigo-500 transition-colors duration-200 p-4`;
+  icon.className = `${iconClass} text-white hover:text-blue-500 transition-colors duration-200 p-4`;
   techContainer.appendChild(icon);
 });
 
