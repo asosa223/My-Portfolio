@@ -115,9 +115,9 @@ document.getElementById('app').innerHTML = `
   <footer class="mt-12 bg-gray-100 text-center text-sm text-gray-600 py-6">
     <p>&copy; 2025 Alec Sosa. All rights reserved.</p>
     <div class="flex justify-center gap-4 mt-2">
-      <a href="https://github.com/your-username" target="_blank" class="hover:text-black transition">GitHub</a>
-      <a href="mailto:your@email.com" class="hover:text-black transition">Email</a>
-      <a href="https://www.linkedin.com/in/your-profile" target="_blank" class="hover:text-black transition">LinkedIn</a>
+      <a href="https://github.com/asosa223" target="_blank" class="hover:text-black transition">GitHub</a>
+      <a href="mailto:alecsosa223@gmail.com" class="hover:text-black transition">Email</a>
+      <a href="www.linkedin.com/in/alec-sosa-0a3a60261" target="_blank" class="hover:text-black transition">LinkedIn</a>
     </div>
   </footer>
   </main>
