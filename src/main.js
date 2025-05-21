@@ -135,7 +135,7 @@ const projects = [
     title: "Weather App",
     description: "Simple weather app using OpenWeatherMap API.",
     image: "/images/weather-app-v2.png",
-    liveLink: "https://gentle-belekoy-a2742f.netlify.app/",
+    liveLink: "https://alecsosa-weatherapp.netlify.app/",
     githubLink: "https://github.com/asosa223/Weather-App-V2#"
   }
 ];
